@@ -27,7 +27,7 @@ I searched for a good Python-based solution (in late 2018) and found nothing sui
 
 Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only. Took some time to figure out how the bytes were laid out for RRI. 
 
-This _should_ function with other Bluetooth heart rate sensors that broadcast the Heart Rate (180d) service. This does not include Fitbit products, which not broadcast the heart rate service over bluetooth.
+I have tested with the H7 and the Tickr. This _should_ function with other Bluetooth heart rate sensors that broadcast the Heart Rate (180d) service. This does not include Fitbit or Apple products, which are more locked-down on the data side unfortunately.
 
 Example lists of devices this should be compatible with (mostly HR straps) can be found at [EliteHRV](https://elitehrv.com/compatible-devices) and [Sweetwater](http://www.sweetwaterhrv.com/healthsensors.shtml)
 
@@ -35,4 +35,5 @@ Example lists of devices this should be compatible with (mostly HR straps) can b
 
 - [Bluetooth Heart Rate Measurement Spec](https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.heart_rate_measurement.xml)
 - [Polar developer information for H7,H10 etc.](https://developer.polar.com/wiki/H6,_H7_and_H10_Heart_rate_sensors) (including the important information about units for RRI data!)
+- If you are interested in accurate R-R interval data (for HRV, for example) be careful which devices you use. Most optical devices (e.g. wrist-worn) provide insufficiently accurate RRI data. ECG is generally a better method for this purpose. See [Marco Altini's great writeup](https://www.hrv4training.com/blog/hardware-for-hrv-what-sensor-should-you-use) for more nuanced analysis and discussion.
 
