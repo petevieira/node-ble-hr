@@ -1,8 +1,18 @@
-# Log heart rate from a Polar H7 using node
+# Receive heart rate and RRI from devices taht speak BLE HR (e.g. Polar H7, Wahoo Tickr etc) using Node
 
-A rudamentary example of using [Noble](https://github.com/sandeepmistry/noble) to listen to heart rate data from a Polar H7 bluetooth heart rate sensor.
+This simple example uses [Noble](https://github.com/sandeepmistry/noble) to listen to heart rate and beat-to-beat interval (aka RRI or IBI) data transimitted from any device which speaks the Bluetooth Heart Rate Service protocol. A list of such devices currently includes: 
 
-`index.js` is pretty short and thoroughly commented. The code is pretty naive, it just finds the first bluetooth peripheral transmitting the bluetooth heart rate service and listens for the measurement data.
+- Polar H10
+- Polar H7
+- Wahoo TICKR(X)
+- Zephyr HxM (BT4.0 version only)
+- 4iiii Viiiiva
+
+(see Notes below)
+
+## Overview
+
+`index.js` is pretty short and thoroughly commented. The code is very basic: it just finds the first bluetooth peripheral transmitting the bluetooth heart rate service and listens for and parses out the measurement data.
 
 ## How to use this
 
@@ -13,14 +23,11 @@ A rudamentary example of using [Noble](https://github.com/sandeepmistry/noble) t
 - After a few seconds, you should see heart rate data logged into the terminal
 
 ## Notes
-This _should_ function with other bluetooth heart rate sensors that broadcast the 180d service.
-This does not include Fitbit Charge HR - to my knowledge the Charge HR does not broadcast the
-heart rate service over bluetooth.
+I searched for a good Python-based solution (in late 2018) and was unsatisfied with solutions. This was the best option available and plays nice with Python via the `subprocess` module and pipe of stdout. (see [here](https://stackoverflow.com/a/52940833/695804) for some example code). 
 
+Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only. Took some time to figure out how the bytes were laid out for RRI. 
 
-## Resources
-Some good resources for more on listening to bluetooth heart rate:
+This _should_ function with other Bluetooth heart rate sensors that broadcast the Heart Rate (180d) service. This does not include Fitbit products, which not broadcast the heart rate service over bluetooth.
 
-[Introduction to Core Bluetooth: Building a Heart Rate Monitor](http://www.raywenderlich.com/52080/introduction-core-bluetooth-building-heart-rate-monitor)
+Example lists of devices this should be compatible with (mostly HR straps) can be found at [EliteHRV](https://elitehrv.com/compatible-devices) and [Sweetwater](http://www.sweetwaterhrv.com/healthsensors.shtml)
 
-[Mac Developer Library: CoreBluetooth Heart Rate Monitor](https://developer.apple.com/library/mac/samplecode/HeartRateMonitor/Introduction/Intro.html)
