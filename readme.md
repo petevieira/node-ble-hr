@@ -23,7 +23,7 @@ and several others (see Notes below)
 - After a few seconds, you should see RRI data printed to the terminal
 
 ## Notes
-I searched for a good Python-based solution (in late 2018) and was unsatisfied with solutions. This was the best option available and plays nice with Python via the `subprocess` module and pipe of stdout. (see [here](https://stackoverflow.com/a/52940833/695804) for some example code). 
+I searched for a good Python-based solution (in late 2018) and found nothing suitable. This was the best option available and plays nice with Python via the `subprocess` module and pipe of stdout. (see [here](https://stackoverflow.com/a/52940833/695804) for some example code). 
 
 Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only. Took some time to figure out how the bytes were laid out for RRI. 
 
