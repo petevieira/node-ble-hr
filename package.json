@@ -1,5 +1,5 @@
 {
-  "name": "noble-h7",
+  "name": "node-ble-hr",
   "private": true,
   "dependencies": {
     "noble": "^1.7.0"

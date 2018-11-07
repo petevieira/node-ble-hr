@@ -29,11 +29,15 @@ noble.on('discover', function(peripheral) {
     peripheral.discoverSomeServicesAndCharacteristics(serviceUUID, characteristicUUID, function(error, services, characteristics){
       characteristics[0].notify(true, function(error){
         characteristics[0].on('data', function(data, isNotification){
-          // Upon receiving data, output the BPM
-          // The actual BPM data is stored in the 2nd bit in data (at array index 1)
-          // Thanks Steve Daniel: http://www.raywenderlich.com/52080/introduction-core-bluetooth-building-heart-rate-monitor
-          // Measurement docs here: https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml
-          console.log('data is: ' + data[1]);
+          // Upon receiving data (array of bytes), decode the HR (in bpm) and the RRIs included
+          //console.log('length: ' + data.length)
+          //console.log('flags: ' + data[0]); //(conv this to binary) see: https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml
+          //console.log('bpm: ' + data[1]);
+          var i; RRITxt = ''//'RRI: '
+		  for (i = 2; i < data.length; i+=2) { //loop over RRI entries (2 indicies per val)
+	          RRITxt += ' ' + (data[i] + 256*data[i+1]); //2nd bit is most significant
+	      }
+	      console.log(RRITxt)
         });
       });
     });
