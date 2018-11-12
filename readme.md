@@ -25,7 +25,7 @@ and several others (see Notes below)
 ## Notes
 I searched for a good Python-based solution (in late 2018) and found nothing suitable. This was the best option available and plays nice with Python via the `subprocess` module and pipe of stdout. (see [here](https://stackoverflow.com/a/52940833/695804) for some example code). 
 
-Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only and uses noble. Took some time to figure out how the bytes were laid out for RRI, but I've documented it. 
+Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only and uses the original noble, now dysfunctional on macOS. Took some time to figure out how the bytes were laid out for RRI, but I've documented it. 
 
 After upgrading macOS and Node versions, I had trouble getting things to work anymore. However in the end there was a relatively simple solution, using the [noble-mac](https://github.com/Timeular/noble-mac) package instead of noble, which is more stable on macOS between versions. Those without macOS can make the simple documented changes in `index.js` and `package.json` to use [noble] (https://github.com/sandeepmistry/noble) instead. 
 
