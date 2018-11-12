@@ -1,6 +1,6 @@
 # Receive heart rate and RRI via BLE HR using Node
 
-This simple example uses [Noble-mac](https://github.com/Timeular/noble-mac) (or with simple documented modification [Noble] (https://github.com/sandeepmistry/noble)) to listen to heart rate and beat-to-beat interval (aka RRI or IBI) data transimitted from any device which speaks the [Bluetooth Heart Rate Service](https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml&u=org.bluetooth.service.heart_rate.xml) protocol. A list of such devices currently includes: 
+This simple example uses [Noble-mac](https://github.com/Timeular/noble-mac) (or with simple documented modification [Noble](https://github.com/sandeepmistry/noble)) to listen to heart rate and beat-to-beat interval (aka RRI or IBI) data transimitted from any device which speaks the [Bluetooth Heart Rate Service](https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.heart_rate.xml&u=org.bluetooth.service.heart_rate.xml) protocol. A list of such devices currently includes: 
 
 - Polar H10
 - Polar H7
@@ -27,7 +27,7 @@ I searched for a good Python-based solution (in late 2018) and found nothing sui
 
 Based on [node-h7-hr](https://github.com/jakelear/node-h7-hr), which pulls HR only and uses the original noble, now dysfunctional on macOS. Took some time to figure out how the bytes were laid out for RRI, but I've documented it. 
 
-After upgrading macOS and Node versions, I had trouble getting things to work anymore. However in the end there was a relatively simple solution, using the [noble-mac](https://github.com/Timeular/noble-mac) package instead of noble, which is more stable on macOS between versions. Those without macOS can make the simple documented changes in `index.js` and `package.json` to use [noble] (https://github.com/sandeepmistry/noble) instead. 
+After upgrading macOS and Node versions, I had trouble getting things to work anymore. However in the end there was a relatively simple solution, using the [noble-mac](https://github.com/Timeular/noble-mac) package instead of noble, which is more stable on macOS between versions. Those without macOS can make the simple documented changes in `index.js` and `package.json` to use [noble](https://github.com/sandeepmistry/noble) instead. 
 
 If you have trouble with Node versions, unfortunately, this can be a wormwhole. However, I can recommend the [node-reinstall](https://github.com/brock/node-reinstall/) package for both re-installing and installing first time. Also: run commands without `sudo`. 
 
