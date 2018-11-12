@@ -1,4 +1,4 @@
-var noble = require('noble');
+var noble = require('noble-mac'); //change to require('noble') for non-macOS 
 
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {

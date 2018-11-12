@@ -2,6 +2,7 @@
   "name": "node-ble-hr",
   "private": true,
   "dependencies": {
-    "noble": "^1.7.0"
+    "noble-mac": "Timeular/noble-mac"
+    /*modify to: "noble": "^1.7.0" for non-mac*/
   }
 }
