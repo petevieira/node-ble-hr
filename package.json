@@ -3,6 +3,5 @@
   "private": true,
   "dependencies": {
     "noble-mac": "Timeular/noble-mac"
-    /*modify to: "noble": "^1.7.0" for non-mac*/
   }
 }
